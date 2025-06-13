@@ -4,16 +4,15 @@ import (
 	"net/http"
 )
 
-
 type Todo struct {
 	Contents   string `json:"ToDoContents"`
-	ExpireDate string `json:"ExpireDate"`
+	ExpireTime int    `json:"ExpireTime"`
 }
 
-const fileName = "todos.json"
+const fileName = "/Users/ben/home/programming/personal/RaspberryServer/servertodolist/todos.json"
 
-func Start() {
-	http.HandleFunc("/todo/addtodo", addToDo)
-	//http.HandleFunc("/todo/gettodo", handler http.Handler)
+func Start(mux *http.ServeMux) {
+	mux.HandleFunc("/todo/addtodo", addToDo)
+	mux.HandleFunc("/todo/gettodo", getTodosApi)
 	//http.HandleFunc("/todo/removetodo", handler http.Handler)
 }

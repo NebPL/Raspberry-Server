@@ -1,0 +1,10 @@
+
+//Add ToDo 
+curl -v -X POST \
+     -H "Content-Type: application/json" \
+     -H "Passwort:uoyCjXEPJVWnpaedHiO" \
+     -d '{"ToDoContents": "Neues ToDo hinzufügen", "ExpireDate": 20250701}' \
+     http://localhost:8080/todo/addtodo
+
+//Get ToDos
+curl -v -X GET -H "Passwort:uoyCjXEPJVWnpaedHiO " http://localhost:8080/todo/gettodo
